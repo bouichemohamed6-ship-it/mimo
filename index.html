@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Rêve Parfumerie | Mimo</title>
+    <!-- استدعاء أيقونات احترافية -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- استدعاء خط عربي احترافي -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* برمجة الحركات (Animations) */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+            50% { box-shadow: 0 0 25px rgba(212, 175, 55, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        }
+
+        /* شريط التنقل العلوي (شفاف واحترافي) */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5% ;
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            animation: fadeInDown 1s ease-out;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4af37; /* لون ذهبي */
+            letter-spacing: 2px;
+        }
+
+        /* القسم الرئيسي (Hero Section) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* يمكنك تغيير رابط الصورة بصورة من تصويرك أو تصميمك */
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1000') center/cover;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1.2s ease-out 0.5s both;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #d4af37, #f3e5ab);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: #cccccc;
+        }
+
+        .cta-button {
+            padding: 15px 45px;
+            font-size: 1.2rem;
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: glow 3s infinite;
+        }
+
+        .cta-button:hover {
+            background: #d4af37;
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        /* أيقونة تطفو في الشاشة */
+        .floating-icon {
+            font-size: 3.5rem;
+            color: #d4af37;
+            margin-top: 50px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* قسم المميزات (بطاقات تتفاعل مع الفأرة) */
+        .features {
+            padding: 100px 5%;
+            text-align: center;
+            background: #0a0a0a;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+
+        .features h2 span {
+            color: #d4af37;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #141414;
+            padding: 40px 30px;
+            border-radius: 20px;
+            width: 320px;
+            transition: all 0.4s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        /* الأنيميسيون عند تمرير الفأرة على البطاقة */
+        .card:hover {
+            transform: translateY(-15px);
+            border-bottom: 4px solid #d4af37;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            background: #1a1a1a;
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: #d4af37;
+            margin-bottom: 25px;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover i {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card p {
+            color: #888;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MIMO</div>
+        <div style="color: white; font-size: 1.2rem;">Le Rêve Parfumerie</div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>عالم الأناقة والجاذبية</h1>
+            <p>اكتشف تشكيلتنا الحصرية من العطور الفاخرة التي تعبر عن شخصيتك</p>
+            <a href="#explore" class="cta-button">تصفح التشكيلة</a>
+            <div class="floating-icon">
+                <i class="fa-solid fa-bottle-droplet"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="explore">
+        <h2>لماذا تختار <span>عطورنا؟</span></h2>
+        <div class="features-grid">
+            <div class="card">
+                <i class="fa-solid fa-leaf"></i>
+                <h3>مكونات نقية</h3>
+                <p>نستخلص أفضل المكونات من الطبيعة لنقدم لك روائح تدوم طويلاً وتترك أثراً لا يُنسى.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-palette"></i>
+                <h3>تصميم فني</h3>
+                <p>كل زجاجة عطر مصممة بعناية فائقة لتكون تحفة فنية تزين مجموعتك الخاصة.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h3>توصيل سريع</h3>
+                <p>نضمن لك وصول منتجاتك بسرعة وأمان إلى باب منزلك في تغليف فاخر.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
